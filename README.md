@@ -5,8 +5,67 @@
 
 [Github源码](https://github.com/small-dream/China_Province_City)
 
-获取数据的来源
----------
+# 中国省市县数据
+
+最权威最完整的中国省市县数据，数据来源于民政部门门户网站。
+
+## 数据下载
+
+[2019年1月中华人民共和国县以上行政区划代码.json](https://github.com/jworldexpo/China_Province_City/blob/master/2019%E5%B9%B41%E6%9C%88%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%8E%BF%E4%BB%A5%E4%B8%8A%E8%A1%8C%E6%94%BF%E5%8C%BA%E5%88%92%E4%BB%A3%E7%A0%81.json)
+
+## 部署与实时预览
+
+本项目现已支持通过Spring Boot进行部署，可以实时预览省市县数据。
+
+### 本地运行
+
+1. 克隆仓库
+```bash
+git clone https://github.com/jworldexpo/China_Province_City.git
+cd China_Province_City
+```
+
+2. 使用Maven构建项目
+```bash
+mvn clean package
+```
+
+3. 运行应用
+```bash
+java -jar target/China_Province_City-1.0-SNAPSHOT.jar
+```
+
+4. 访问应用
+打开浏览器，访问 http://localhost:8080
+
+### Docker部署
+
+1. 使用Docker构建镜像
+```bash
+docker build -t china-province-city .
+```
+
+2. 运行Docker容器
+```bash
+docker run -p 8080:8080 china-province-city
+```
+
+3. 或者使用docker-compose
+```bash
+docker-compose up -d
+```
+
+4. 访问应用
+打开浏览器，访问 http://localhost:8080
+
+## API接口
+
+本项目提供了REST API接口，可以通过HTTP请求获取数据：
+
+- 获取所有省份：`GET /api/regions/provinces`
+- 获取指定省份：`GET /api/regions/provinces/{code}`
+
+## 获取数据的来源
 
 什么地方可以获取最权威的省市县数据？当然是官网
 
